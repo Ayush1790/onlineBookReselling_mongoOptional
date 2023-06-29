@@ -1,0 +1,27 @@
+<div>
+  <h1 class='text-center m-2 p-4 bg-dark text-white'>Books</h1>
+</div>
+<?php
+include_once APP_PATH.'/assets/header.php';
+$i=1;
+echo "<div class='d-flex flex-wrap m-2 text-center' >";
+foreach ($data as $key => $value) {
+  foreach ($value as $key1 => $value1) {
+    if($i==1){
+      $i++;
+      continue;
+    }
+    echo "<div class='card m-2 p-2' style='width: 16rem;'>
+  <div class='card-body'>
+    <h3 class='card-title text-primary'>$value1->title</h3>
+    <p class='card-text text-secondary'>Author : $value1->author</p>
+    <p class='card-text'> Pages : " . $value1->pages . "</p>
+    <p class='card-text'> id : " . $value1->id . "</p>
+    <a href='order?id=$value1->id' class='btn btn-primary'>order</a>
+  </div>
+</div>";
+  }
+}
+echo "</div>";
+?>
+</div>
